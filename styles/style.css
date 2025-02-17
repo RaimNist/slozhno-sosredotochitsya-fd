@@ -60,7 +60,7 @@
   display: block;
   position: absolute;
   top: 10px;
-  right: 24px;
+  right: 28px;
   line-height: 1.4em;
   text-transform: uppercase;
 }
@@ -74,7 +74,7 @@
   background-color: var(--accent-color, #FF0070);
   box-shadow: 0px 0px 4px 2px var(--accent-color, #FF0070);
   position: absolute;
-  right: -15px;
+  right: -20px;
   top: 8px;
 }
 
@@ -250,6 +250,10 @@
     right: 28px;
   }
 
+  .header__decoration::after {
+    right: -20px;
+  }
+
   .header__theme-menu {
     align-self: end;
     justify-self: end;
@@ -376,6 +380,7 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+    margin-block-start: 0;
   }
 
   .header__theme-menu-button_active {
