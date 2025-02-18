@@ -1,1 +1,1 @@
-https://github.com/RaimNist/slozhno-sosredotochitsya-fd.git
+git@github.com:RaimNist/slozhno-sosredotochitsya-fd.git
