@@ -19,9 +19,13 @@
   display: grid;
   font-size: 18px;
   block-size: 100vh;
-  position: relative;
   color: var(--accent-color, #FF0070);
   gap: 55px;
+  min-block-size: 668px;
+}
+
+.decorated-zone {
+  position: relative;
 }
 
 .header__theme-menu {
@@ -30,27 +34,27 @@
   justify-self: end;
 }
 
-.header::before {
+.decorated-zone::before {
   content: '';
   display: block;
   inline-size: 25px;
   block-size: 25px;
   background-color: transparent;
-  border-inline-end: 1px solid var(--accent-color, #FF0070);
-  border-block-start: 1px solid var(--accent-color, #FF0070);
+  border-inline-end: 1px solid var(--nav-color, #FF0070);
+  border-block-start: 1px solid var(--nav-color, #FF0070);
   position: absolute;
   top: 10px;
   right: 0px;
 }
 
-.header::after {
+.decorated-zone::after {
   content: '';
   display: block;
   inline-size: 25px;
   block-size: 25px;
   background-color: transparent;
-  border-inline-start: 1px solid var(--accent-color, #FF0070);
-  border-block-end: 1px solid var(--accent-color, #FF0070);
+  border-inline-start: 1px solid var(--nav-color, #FF0070);
+  border-block-end: 1px solid var(--nav-color, #FF0070);
   position: absolute;
   bottom: 10px;
   left: 0px;
@@ -78,11 +82,16 @@
   top: 8px;
 }
 
+.theme-light .header__decoration {
+  display: none;
+}
+
 .header__theme-menu-list {
   display: flex;
   gap: 10px;
   flex-direction: column;
   padding-block-end: 10px;
+  color: var(--nav-color, #FF0070);
 }
 
 .header__theme-menu-button {
@@ -96,11 +105,12 @@
 
 .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
   border: 1px solid var(--button-hover-border-color, rgba(255, 0, 112, 0.4));
+  cursor: pointer;
 }
 
 .header__theme-menu-button_active {
   border: 1px solid var(--button-border-color, #FF0070);
-  margin-block-start: 7px;
+  padding-block: 3px;
 }
 
 .header__theme-menu-button:focus-visible {
@@ -115,7 +125,7 @@
   font-weight: 700;
   line-height: 0.825em;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  
+  margin-block-start: 8px;
 }
 
 .header__description {
@@ -123,7 +133,7 @@
   color: var(--accent-text-color, #000028);
   background-color: var(--accent-color, #FF0070);
   font-weight: 700;
-  white-space: pre-line;
+  white-space: pre-line; /* Для правильного переноса строки в абзаце, иначе выглядит не как на макете */
   line-height: 1.3em;
   margin-block-end: 66px;
 }
@@ -151,9 +161,12 @@
 .section__subtitle {
   display: block;
   min-inline-size: 100%;
-  background-color: var(--accent-color, #FF0070);
   color: var(--subtitle-color, #000028);
   font-size: 18px;
+}
+
+.title-decor {
+  background-color: var(--accent-color, #FF0070);
 }
 
 .section__subtitle-accent {
@@ -191,31 +204,32 @@
 
 .footer {
   position: relative;
-  min-block-size: 100vh;
+  block-size: 100vh;
   display: grid;
+  min-block-size: 668px;
 }
 
-.footer::before {
+.decorated-zone::before {
   content: '';
   display: block;
   inline-size: 25px;
   block-size: 25px;
   background-color: transparent;
-  border-inline-end: 1px solid var(--accent-color, #FF0070);
-  border-block-start: 1px solid var(--accent-color, #FF0070);
+  border-inline-end: 1px solid var(--nav-color, #FF0070);
+  border-block-start: 1px solid var(--nav-color, #FF0070);
   position: absolute;
   right: 0;
   top: 10px;
 }
 
-.footer::after {
+.decorated-zone::after {
   content: '';
   display: block;
   inline-size: 25px;
   block-size: 25px;
   background-color: transparent;
-  border-inline-start: 1px solid var(--accent-color, #FF0070);
-  border-block-end: 1px solid var(--accent-color, #FF0070);
+  border-inline-start: 1px solid var(--nav-color, #FF0070);
+  border-block-end: 1px solid var(--nav-color, #FF0070);
   position: absolute;
   left: 0;
   bottom: 10px;
@@ -237,30 +251,23 @@
     gap: 60px;
   }
 
-  .header::before {
+  .decorated-zone::before {
     top: 20px;
   }
   
-  .header::after {
+  .decorated-zone::after {
     bottom: 20px;
   }
 
   .header__decoration {
     top: 20px;
-    right: 28px;
-  }
-
-  .header__decoration::after {
-    right: -20px;
   }
 
   .header__theme-menu {
     align-self: end;
-    justify-self: end;
   }
 
   .header__theme-menu-list {
-    flex-direction: column;
     margin-block-start: 7px;
   }
 
@@ -311,8 +318,6 @@
   }
 
   .section__image {
-    inline-size: 100%; /* Строгий размер задан, чтобы при увеличении ширины 
-                          экрана до 768px картинки не были меньше ширины экрана*/
     block-size: 100%;
     object-fit: cover;
   }
@@ -336,11 +341,11 @@
     grid-column: 2 / 4;
   }
 
-  .footer::before {
+  .decorated-zone::before {
     top: 20px;
   }
 
-  .footer::after {
+  .decorated-zone::after {
     bottom: 20px;
   }
 
@@ -352,7 +357,7 @@
 
 @media (width >= 1024px) {
   .page {
-    padding: 0 20px;
+    padding-inline: 20px;
     gap: 60px;
   }
 
@@ -360,11 +365,11 @@
     padding-block: 20px;
   }
   
-  .header::before {
+  .decorated-zone::before {
     top: 20px;
   }
   
-  .header::after {
+  .decorated-zone::after {
     bottom: 20px;
   }
 
@@ -383,15 +388,11 @@
     margin-block-start: 0;
   }
 
-  .header__theme-menu-button_active {
-    margin-block-start: 0;
-  }
-
   .header__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     margin-block-end: 0;
     padding-block-end: 0;
-    padding-block-start: 40px;
+    padding-block-start: 25px;
     margin-inline-start: -20px;
     align-self: center;
   }
@@ -401,6 +402,7 @@
     max-inline-size: 50%;
     justify-self: end;
     align-self: start;
+    
   }
 
   .main {
@@ -447,8 +449,6 @@
   }
 
   .section__image {
-    inline-size: 100%; /* Строгий размер задан, чтобы при увеличении ширины 
-                          экрана до 768px картинки не были меньше ширины экрана*/
     block-size: 100%;
     object-fit: cover;
   }
@@ -472,11 +472,11 @@
     grid-column: 2 / 4;
   }
 
-  .footer::before {
+  .decorated-zone::before {
     top: 20px;
   }
 
-  .footer::after {
+  .decorated-zone::after {
     bottom: 20px;
   }
 

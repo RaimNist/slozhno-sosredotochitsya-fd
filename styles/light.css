@@ -5,7 +5,6 @@
 */
 
 :root.theme-light {
-  --bg-color: #FF8DCB;
   --accent-color: #FF8DCB;
   --text-color: #353430;
   --hero-text-color: #FFC2E6;
@@ -15,10 +14,11 @@
   --background-image: url(../images/cover-image-light.png);
   --button-border-color: #353430;
   --button-hover-border-color: rgba(50, 49, 45, 0.4);
+  --nav-color: #353430;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
+/* .theme-light .page {
+  
   background-image: var(--background-image, url(../images/cover-image-light.png));
 }
 
@@ -48,7 +48,7 @@
 .theme-light .footer::after {
   border-inline-start: 1px solid var(--text-color, #353430);
   border-block-end: 1px solid var(--text-color, #353430);
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -64,8 +64,8 @@
     --button-hover-border-color: rgba(50, 49, 45, 0.4);    
   }
 
-  .theme-auto .page {
-    /* Вам также нужно будет написать ряд подобных селекторов */
+  /* .theme-auto .page {
+    
     background-image: var(--background-image, url(../images/cover-image-light.png));
   }
   
@@ -95,5 +95,5 @@
   .theme-auto .footer::after {
     border-inline-start: 1px solid var(--text-color, #353430);
     border-block-end: 1px solid var(--text-color, #353430);
-  }
+  } */
 }
